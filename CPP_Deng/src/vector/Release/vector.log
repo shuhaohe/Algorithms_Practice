@@ -1,0 +1,31 @@
+﻿  main.cpp
+d:\codespace\vsspace\dsa_deng\src\skiplist\quadlistnode_insert.h(12): warning C5037: 'QuadlistNode<T>::insertAsSuccAbove': an out-of-line definition of a member of a class template cannot have default arguments
+d:\codespace\vsspace\dsa_deng\src\skiplist\quadlist_insert.h(12): warning C5037: 'Quadlist<T>::insertAfterAbove': an out-of-line definition of a member of a class template cannot have default arguments
+d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(97): warning C4474: 'printf' : too many arguments passed for format string
+  d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(97): note: placeholders and their parameters expect 1 variadic arguments, but 3 were provided
+  d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(138): note: see reference to function template instantiation 'void testVector<int>(int)' being compiled
+d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(101): warning C4474: 'printf' : too many arguments passed for format string
+  d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(101): note: placeholders and their parameters expect 1 variadic arguments, but 3 were provided
+d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(124): warning C4473: 'printf' : not enough arguments passed for format string
+  d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(124): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(124): note: the missing variadic argument 2 is required by format string '%d'
+d:\codespace\vsspace\dsa_deng\src\uniprint\print_traversable.h(16): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'Vector<T> *'
+          with
+          [
+              T=int
+          ]
+  d:\codespace\vsspace\dsa_deng\src\uniprint\print.h(34): note: see reference to function template instantiation 'void UniPrint::p<T>(T &)' being compiled
+          with
+          [
+              T=Vector<int>
+          ]
+  d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(88): note: see reference to function template instantiation 'void print<Vector<T>>(Vector<T> &)' being compiled
+          with
+          [
+              T=int
+          ]
+  d:\codespace\vsspace\dsa_deng\src\vector\main.cpp(138): note: see reference to function template instantiation 'void testVector<int>(int)' being compiled
+  Generating code
+  All 83 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  vector.vcxproj -> D:\CodeSpace\VSspace\DSA_Deng\src\Release\vector.exe
