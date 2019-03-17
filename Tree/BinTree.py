@@ -7,6 +7,12 @@ class BinTree:
             self._left = left
             self._right = right
 
+        def __eq__(self, other):
+            if self._data == other._data:
+                return True
+            else:
+                return False
+
     def __init__(self, root=None):
         self._root = root
 
