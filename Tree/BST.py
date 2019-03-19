@@ -53,9 +53,11 @@ class BST:
         return node
 
     def delMin(self, node):
+        if node is None:
+            return None
         if node.left is None:
             return node.right
-        node.left = self.delmin(node.left)
+        node.left = self.delMin(node.left)
         return node
 
     def findMin(self, node):
@@ -64,7 +66,7 @@ class BST:
         return node
 
     def delete(self, key):
-        self._delete(self.root, key)
+        self.root = self._delete(self.root, key)
 
     def _delete(self, node, key):
         if node is None: return None
@@ -80,7 +82,7 @@ class BST:
 
             temp = node
             node = self.findMin(node.right)
-            node.right = self.delMin(node.right)
+            node.right = self.delMin(temp.right)
             node.left = temp.left
             return node
 
@@ -105,9 +107,9 @@ class BST:
     def postorder(self):
         self._postorder(self.root)
 
-    def _posrorder(self, node):
+    def _postorder(self, node):
         if node:
-            self._posrorder(node.left)
+            self._postorder(node.left)
             self._postorder(node.right)
             print(node.value)
 
@@ -158,3 +160,14 @@ if __name__ == '__main__':
 
     print("inorder")
     tree.inoder()
+
+    print("="*8)
+    print("delete some node")
+    tree.delete(10)
+    tree.preoder()
+
+    print("inorder")
+    tree.inoder()
+
+    print("postorder")
+    tree.postorder()
