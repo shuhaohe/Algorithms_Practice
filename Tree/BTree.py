@@ -1,5 +1,7 @@
 class Node(object):
-    def __init__(self, keys=[], children=[], isLeaf=True):
+    def __init__(self, keys=None, children=None, isLeaf=True):
+        if keys is None: keys = []
+        if children is None: children = []
         self.keys = keys
         self.children = children
         self.isLeaf = isLeaf
