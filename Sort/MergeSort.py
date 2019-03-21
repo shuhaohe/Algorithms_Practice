@@ -1,14 +1,19 @@
 class Merge(object):
-    def __init__(self, n):
+    def __init__(self):
         self.aux = []
-        for i in range(n):
-            self.aux.append(None)
+        # for i in range(n):
+        #     self.aux.append(None)
 
-    def sort(self, a, lo, hi):
+    def sort(self, a):
+        for i in range(len(a)):
+            self.aux.append(None)
+        self._sort(a, 0, len(a)-1)
+
+    def _sort(self, a, lo, hi):
         if lo >= hi: return
         mid = lo + (hi - lo) // 2
-        self.sort(a, lo, mid)
-        self.sort(a, mid+1, hi)
+        self._sort(a, lo, mid)
+        self._sort(a, mid+1, hi)
 
         self.merge(a, lo, mid, hi)
 
@@ -35,8 +40,8 @@ class Merge(object):
 
 def main():
     a = [10, 5, 11, 50, 4, 2, 9]
-    ms = Merge(len(a))
-    ms.sort(a, 0, len(a)-1)
+    ms = Merge()
+    ms.sort(a)
     print(a)
 
 if __name__ == '__main__':
