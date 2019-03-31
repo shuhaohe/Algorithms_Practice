@@ -17,6 +17,12 @@ class Merge(object):
 
         self.merge(a, lo, mid, hi)
 
+    def _sort_down_2_up(self, a, lo, hi):
+        # sz = 1
+        # while sz <= hi:
+        #     while lo <
+        pass
+
     def merge(self, a, lo, mid, hi):
         i = lo
         j = mid + 1
