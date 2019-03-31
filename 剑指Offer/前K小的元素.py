@@ -1,9 +1,16 @@
-class MaxHeap(object):
+"""
+题目描述
+输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。
+"""
+
+# -*- coding:utf-8 -*-
+
+class MinHeap(object):
     def __init__(self, n=0):
         self.n = n
         self.pq = [-1]  # 第一个元素作占位符
 
-    def delMax(self):
+    def delMin(self):
         if self.n == 0:
             raise Exception("pq为空，不允许删除")
         max = self.pq[1]
@@ -22,7 +29,7 @@ class MaxHeap(object):
         # 在pq末端插入新元素，破坏了堆序性。
         # 通过上浮操作进行调整
         parent = k // 2
-        while parent >= 1 and self.pq[parent] < self.pq[k]:
+        while parent >= 1 and self.pq[parent] > self.pq[k]:
             self.swap(parent, k)
             k = parent
             parent = parent // 2
@@ -33,9 +40,9 @@ class MaxHeap(object):
         while 2*k <= self.n:
             j = 2*k
             if j < self.n:
-                if self.pq[j] < self.pq[j+1]:
+                if self.pq[j] > self.pq[j+1]:
                     j += 1
-            if self.pq[k] > self.pq[j]:
+            if self.pq[k] < self.pq[j]:
                 break
             self.swap(k, j)
             k = j
@@ -69,29 +76,27 @@ class MaxHeap(object):
             self.sink(i)
 
 
+class Solution:
+    def GetLeastNumbers_Solution(self, tinput, k):
+        # write code here
+        if k > len(tinput):
+            return []
+        if tinput == []:
+            return []
 
+        if tinput == []:
+            return []
+        if k > len(tinput):
+            return []
 
-
-def main():
-    # maxHeap = MaxHeap()
-    # maxHeap.insert(9)
-    # maxHeap.insert(20)
-    # maxHeap.insert(7)
-    # maxHeap.insert(8)
-    # maxHeap.insert(10)
-    #
-    # print(maxHeap.delMin(), end=" ")
-    # print(maxHeap.delMin(), end=" ")
-    # print(maxHeap.delMin(), end=" ")
-    # print(maxHeap.delMin(), end=" ")
-    # print(maxHeap.delMin(), end=" ")
-    # print(maxHeap.delMin(), end=" ")
-
-    maxHeap = MaxHeap()
-    maxHeap.buildHeap([9, 10, 8, 30, 74, 4, 16])
-    print(maxHeap)
-
-
+        minHeap = MinHeap()
+        minHeap.buildHeap(tinput)
+        res = []
+        for i in range(k):
+            res.append(minHeap.delMin())
+        return res
 
 if __name__ == '__main__':
-    main()
+    s = Solution()
+    res = s.GetLeastNumbers_Solution([4,5,1,6,2,7,3,8],4)
+    print(res)
