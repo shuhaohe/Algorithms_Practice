@@ -1,0 +1,1 @@
+String的内容主要是字符串匹配，Trie Tree， AC Automatic Machine， Postfix Tree
