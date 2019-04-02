@@ -97,14 +97,26 @@ class Graph(object):
     def DFS_non_recursive(graph, start_node):
         stack = [start_node]
         visited = set()
-        while stack:  # not empty
-            node = stack.pop()
-            if node not in visited:
-                visited.add(node)
-                for next in graph.vertexList[node]:
-                    if next not in visited:
-                        stack.append(next)
+        visited.add(start_node)
+        print(start_node, end=" ")
 
+        while stack:  # not empty
+            cur = stack[-1]
+            i = 0
+            for node in graph.vertexList[cur]:
+                if node not in visited:
+                    i += 1
+                    visited.add(node)
+                    stack.append(node)
+                    print(node, end=" ")
+                    break
+            if i == 0:
+                stack.pop()
+        print("\n")
+        return visited
+
+
+        print("\n")
         return visited
 
 
@@ -133,14 +145,18 @@ def main():
     g.addVertex(3)
     g.addVertex(4)
     g.addVertex(5)
+    g.addVertex(6)
     g.addEdge(Edge(1,2))
     g.addEdge(Edge(1,3))
     g.addEdge(Edge(2,4))
     g.addEdge(Edge(3,4))
     g.addEdge(Edge(4,5))
+    g.addEdge(Edge(1,6))
 
     print("DFS")
     Graph.DFS_recursive(g, 1)
+    print("\nDFS-Non-recursive")
+    Graph.DFS_non_recursive(g, 1)
     print("\nBFS")
     Graph.BFS_non_recursive(g, 1)
     # pass
