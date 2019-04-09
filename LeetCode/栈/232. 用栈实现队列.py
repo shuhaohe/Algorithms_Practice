@@ -20,3 +20,56 @@ queue.empty(); // 返回 false
 你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。
 假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。
 """
+
+
+class MyQueue:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self._s1 = []
+        self._s2 = []
+
+    def push(self, x: int) -> None:
+        """
+        Push element x to the back of queue.
+        """
+        self._s1.append(x)
+
+
+    def pop(self) -> int:
+        """
+        Removes the element from in front of queue and returns that element.
+        """
+        length = len(self._s1)
+        for i in range(length-1):
+            self._s2.append(self._s1.pop())
+        res = self._s1.pop()
+        for i in range(len(self._s2)):
+            self._s1.append(self._s2.pop())
+
+        return res
+
+
+    def peek(self) -> int:
+        """
+        Get the front element.
+        """
+        if self.empty():
+            return None
+
+        return self._s1[0]
+
+    def empty(self) -> bool:
+        """
+        Returns whether the queue is empty.
+        """
+        return len(self._s1) == 0
+
+# Your MyQueue object will be instantiated and called as such:
+# obj = MyQueue()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.peek()
+# param_4 = obj.empty()
