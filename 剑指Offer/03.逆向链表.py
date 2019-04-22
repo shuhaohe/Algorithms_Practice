@@ -12,13 +12,27 @@
 class Solution:
     # 返回从尾部到头部的列表值序列，例如[1,2,3]
     def printListFromTailToHead(self, listNode):
-        # write code here
+        # # write code here
+        # if listNode is None:
+        #     return None
+        #
+        # cur = listNode
+        # res = []
+        # while cur is not None:
+        #     res.insert(0, cur.val)
+        #     cur = cur.next
+        # return res
+
+        # stack
+        stack = []
+        res = []
         if listNode is None:
             return None
+        if listNode.next is None:
+            return listNode
+        while listNode.next is not None:
+            stack.append(listNode)
+            listNode = listNode.next
 
-        cur = listNode
-        res = []
-        while cur is not None:
-            res.insert(0, cur.val)
-            cur = cur.next
-        return res
+        while stack:
+            res.append(stack.pop())
