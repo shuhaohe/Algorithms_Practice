@@ -38,4 +38,15 @@ for (int i = 0; i < len; i++) {
 
 class Solution:
     def removeDuplicates(self, nums) -> int:
-        pass
+        i = 0
+
+        while i < len(nums)-1:
+            if nums[i+1] == nums[i]:
+                nums.remove(nums[i])
+            else:
+                i += 1
+
+        return len(nums)
+
+
+
