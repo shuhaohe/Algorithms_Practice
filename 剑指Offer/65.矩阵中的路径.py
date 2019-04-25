@@ -28,9 +28,9 @@ class Solution_2:
 
         for r,c in potential:
             if self.dfsTest(r, c, path[1:]):
-                print("true")
+                # print("true")
                 return True
-        print("false")
+        # print("false")
         return False
 
     def dfsTest(self, r, c, subPath):
