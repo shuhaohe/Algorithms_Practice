@@ -39,6 +39,7 @@ class Solution(object):
         j = 0
         test_p = 1
         max_len = 0
+
         while test_p < len(s):
             if s[test_p] not in s[i:j+1]:
                 j = test_p

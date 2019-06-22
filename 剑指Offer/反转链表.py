@@ -9,9 +9,21 @@ class ListNode:
 
 class Solution:
     # 返回ListNode
-    def ReverseList(self, pHead:ListNode):
+    def ReverseList(self, pHead):
         # write code here
         if pHead is None:
             return None
-        if pHead.next  is None:
+        if pHead.next is None:
             return pHead
+        nHead = pHead
+        cur = pHead.next
+        nHead.next = None
+
+
+        while cur:
+            next = cur.next
+            cur.next = nHead
+            nHead = cur
+            cur = next
+
+        return nHead
